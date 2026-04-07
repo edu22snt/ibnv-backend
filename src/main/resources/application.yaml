@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-rest
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/ibnv
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+
+  flyway:
+    baseline-on-migrate: true
