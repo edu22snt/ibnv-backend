@@ -20,6 +20,9 @@ public class Pessoa implements Serializable {
     @Column(name="NM_EMAIL")
     private String email;
 
+    @Column(name="NO_TELEFONE")
+    private String numTelefone;
+
     @Column(name="NM_CPF")
     private String cpf;
 
@@ -57,6 +60,14 @@ public class Pessoa implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getNumTelefone() {
+        return numTelefone;
+    }
+
+    public void setNumTelefone(String numTelefone) {
+        this.numTelefone = numTelefone;
     }
 
     public void setEmail(String email) {

@@ -19,6 +19,8 @@ public class PessoaDTO implements Serializable {
 
     private String email;
 
+    private String numTelefone;
+
     private String cpf;
 
     private OffsetDateTime dataNascimento;
@@ -53,6 +55,14 @@ public class PessoaDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNumTelefone() {
+        return numTelefone;
+    }
+
+    public void setNumTelefone(String numTelefone) {
+        this.numTelefone = numTelefone;
     }
 
     public String getCpf() {

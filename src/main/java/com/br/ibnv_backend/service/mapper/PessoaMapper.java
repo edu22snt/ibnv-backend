@@ -14,6 +14,7 @@ public class PessoaMapper {
         pessoa.setId(pessoaDTO.getId());
         pessoa.setNome(pessoaDTO.getNome());
         pessoa.setEmail(pessoaDTO.getEmail());
+        pessoa.setNumTelefone(pessoaDTO.getNumTelefone());
         pessoa.setCpf(pessoaDTO.getCpf());
         pessoa.setDataNascimento(pessoaDTO.getDataNascimento());
         pessoa.setSexo(pessoaDTO.getSexo());
@@ -29,6 +30,7 @@ public class PessoaMapper {
         pessoaDTO.setId(pessoa.getId());
         pessoaDTO.setNome(pessoa.getNome());
         pessoaDTO.setEmail(pessoa.getEmail());
+        pessoaDTO.setNumTelefone(pessoa.getNumTelefone());
         pessoaDTO.setCpf(pessoa.getCpf());
         pessoaDTO.setDataNascimento(pessoa.getDataNascimento());
         pessoaDTO.setSexo(pessoa.getSexo());
