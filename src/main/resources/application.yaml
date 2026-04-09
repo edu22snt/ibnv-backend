@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-rest
+    name: ibnv-backend
 
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/ibnv
