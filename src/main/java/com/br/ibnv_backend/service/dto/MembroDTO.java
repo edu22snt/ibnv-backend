@@ -1,15 +1,7 @@
 package com.br.ibnv_backend.service.dto;
 
-import com.br.ibnv_backend.model.Endereco;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 import java.io.Serializable;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 public class MembroDTO implements Serializable {
 
@@ -17,21 +9,27 @@ public class MembroDTO implements Serializable {
 
     private String nome;
 
+    private String liderDireto;
+
     private String email;
 
     private String numTelefone;
 
-    private String cpf;
-
-    private OffsetDateTime dataNascimento;
+    private LocalDateTime dataNascimento;
 
     private String sexo;
 
     private String estadoCivil;
 
-    private Endereco endereco;
+    private EnderecoDTO endereco;
 
     private Integer ativo;
+
+    private LocalDateTime dataCadastro;
+
+    private LocalDateTime dataBatismo;
+
+    private boolean lider;
 
     public Long getId() {
         return id;
@@ -47,6 +45,14 @@ public class MembroDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getLiderDireto() {
+        return liderDireto;
+    }
+
+    public void setLiderDireto(String liderDireto) {
+        this.liderDireto = liderDireto;
     }
 
     public String getEmail() {
@@ -65,19 +71,11 @@ public class MembroDTO implements Serializable {
         this.numTelefone = numTelefone;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public OffsetDateTime getDataNascimento() {
+    public LocalDateTime getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(OffsetDateTime dataNascimento) {
+    public void setDataNascimento(LocalDateTime dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -97,11 +95,11 @@ public class MembroDTO implements Serializable {
         this.estadoCivil = estadoCivil;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoDTO getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(EnderecoDTO endereco) {
         this.endereco = endereco;
     }
 
@@ -111,5 +109,29 @@ public class MembroDTO implements Serializable {
 
     public void setAtivo(Integer ativo) {
         this.ativo = ativo;
+    }
+
+    public LocalDateTime getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDateTime dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public LocalDateTime getDataBatismo() {
+        return dataBatismo;
+    }
+
+    public void setDataBatismo(LocalDateTime dataBatismo) {
+        this.dataBatismo = dataBatismo;
+    }
+
+    public boolean isLider() {
+        return lider;
+    }
+
+    public void setLider(boolean lider) {
+        this.lider = lider;
     }
 }
