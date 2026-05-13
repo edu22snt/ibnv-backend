@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
 
-public class PessoaDTO implements Serializable {
+public class MembroDTO implements Serializable {
 
     private Long id;
 

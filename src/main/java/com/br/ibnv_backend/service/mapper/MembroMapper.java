@@ -1,15 +1,15 @@
 package com.br.ibnv_backend.service.mapper;
 
-import com.br.ibnv_backend.model.Pessoa;
-import com.br.ibnv_backend.service.dto.PessoaDTO;
+import com.br.ibnv_backend.model.Membro;
+import com.br.ibnv_backend.service.dto.MembroDTO;
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class PessoaMapper {
+public class MembroMapper {
 
-    public static Pessoa toEntity(PessoaDTO pessoaDTO) {
-        Pessoa pessoa = new Pessoa();
+    public static Membro toEntity(MembroDTO pessoaDTO) {
+        Membro pessoa = new Membro();
 
         pessoa.setId(pessoaDTO.getId());
         pessoa.setNome(pessoaDTO.getNome());
@@ -24,8 +24,8 @@ public class PessoaMapper {
         return pessoa;
     }
 
-    public static PessoaDTO toDto(Pessoa pessoa) {
-        PessoaDTO pessoaDTO = new PessoaDTO();
+    public static MembroDTO toDto(Membro pessoa) {
+        MembroDTO pessoaDTO = new MembroDTO();
 
         pessoaDTO.setId(pessoa.getId());
         pessoaDTO.setNome(pessoa.getNome());

@@ -6,12 +6,12 @@ import java.io.Serializable;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "TB_PESSOA")
-public class Pessoa implements Serializable {
+@Table(name = "TB_MEMBRO")
+public class Membro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CD_PESSOA")
+    @Column(name = "CD_MEMBRO")
     private Long id;
 
     @Column(name="NM_NOME")
