@@ -3,7 +3,7 @@ spring:
     name: ibnv
 
   datasource:
-    #    url: jdbc:mysql://127.0.0.1:3306/ceac
+    #    url: jdbc:mysql://127.0.0.1:3306/ibnv
     #    username: root
     #    password:
 
