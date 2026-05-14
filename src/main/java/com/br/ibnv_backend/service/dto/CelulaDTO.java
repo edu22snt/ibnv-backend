@@ -6,7 +6,7 @@ public class CelulaDTO implements Serializable {
 
     private Long id;
     private String nome;
-    private String Lider;
+    private String lider;
     private EnderecoDTO endereco;
     private String diaSemana;
     private String horario;
@@ -29,11 +29,11 @@ public class CelulaDTO implements Serializable {
     }
 
     public String getLider() {
-        return Lider;
+        return lider;
     }
 
     public void setLider(String lider) {
-        Lider = lider;
+        this.lider = lider;
     }
 
     public EnderecoDTO getEndereco() {

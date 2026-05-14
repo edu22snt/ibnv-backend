@@ -14,7 +14,6 @@ public class EnderecoDTO implements Serializable {
     private String estado;
     private String cep;
     private String pais;
-    private Timestamp dataCadastro;
 
     public Long getId() {
         return id;
@@ -88,11 +87,4 @@ public class EnderecoDTO implements Serializable {
         this.pais = pais;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
 }

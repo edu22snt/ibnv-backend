@@ -57,4 +57,10 @@ public class CelulaService {
         celula = repository.save(celula);
         return mapper.toDto(celula);
     }
+
+    @Transactional(readOnly = true)
+    public Page<CelulaDTO> searchByKeyword(String param, Pageable pageable) {
+        log.debug("Request to get search Celula by keyword");
+        return repository.searchByKeyword(param, pageable).map(CelulaMapper::toDto);
+    }
 }

@@ -18,42 +18,48 @@ import java.util.Optional;
 public class MembroService {
 
     private final Logger log = LoggerFactory.getLogger(MembroService.class);
-    private MembroMapper membroMapper;
-    private final MembroRepository pessoaRepository;
+    private MembroMapper mapper;
+    private final MembroRepository repository;
 
-    public MembroService(MembroRepository pessoaRepository, MembroMapper membroMapper) {
-        this.pessoaRepository = pessoaRepository;
-        this.membroMapper = membroMapper;
+    public MembroService(MembroRepository repository, MembroMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
     }
 
     public MembroDTO save(MembroDTO dto) {
         log.debug("Request to post save Membro");
-        Membro membro = membroMapper.toEntity(dto);
-        membro = pessoaRepository.save(membro);
-        return membroMapper.toDto(membro);
+        Membro membro = mapper.toEntity(dto);
+        membro = repository.save(membro);
+        return mapper.toDto(membro);
     }
 
     @Transactional(readOnly = true)
     public Optional<MembroDTO> findOne(Long id) {
         log.debug("Request to get one Membro by id");
-        return pessoaRepository.findById(id).map(MembroMapper::toDto);
+        return repository.findById(id).map(MembroMapper::toDto);
     }
 
     @Transactional(readOnly = true)
     public Page<MembroDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Membro");
-        return pessoaRepository.findAll(pageable).map(MembroMapper::toDto);
+        return repository.findAll(pageable).map(MembroMapper::toDto);
     }
 
     public void delete(Long id) {
         log.debug("Request to delete Membro by id : {}", id);
-        pessoaRepository.deleteById(id);
+        repository.deleteById(id);
     }
 
     public MembroDTO update(MembroDTO dto) {
         log.debug("Request to update Membro: {}", dto);
-        Membro membro = membroMapper.toEntity(dto);
-        membro = pessoaRepository.save(membro);
-        return membroMapper.toDto(membro);
+        Membro membro = mapper.toEntity(dto);
+        membro = repository.save(membro);
+        return mapper.toDto(membro);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<MembroDTO> searchByKeyword(String param, Pageable pageable) {
+        log.debug("Request to get search Membro by keyword");
+        return repository.searchByKeyword(param, pageable).map(MembroMapper::toDto);
     }
 }

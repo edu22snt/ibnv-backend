@@ -6,27 +6,16 @@ import java.time.LocalDateTime;
 public class MembroDTO implements Serializable {
 
     private Long id;
-
     private String nome;
-
     private String liderDireto;
-
     private String email;
-
     private String numTelefone;
-
     private LocalDateTime dataNascimento;
-
     private String sexo;
-
     private String estadoCivil;
-
     private EnderecoDTO endereco;
-
     private Integer ativo;
-
     private LocalDateTime dataCadastro;
-
     private LocalDateTime dataBatismo;
 
     private boolean lider;

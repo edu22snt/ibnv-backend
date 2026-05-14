@@ -19,7 +19,6 @@ public class EnderecoMapper {
         endereco.setEstado(enderecoDTO.getEstado());
         endereco.setCep(enderecoDTO.getCep());
         endereco.setPais(enderecoDTO.getPais());
-        endereco.setDataCadastro(enderecoDTO.getDataCadastro());
 
         return endereco;
     }
@@ -36,7 +35,6 @@ public class EnderecoMapper {
         enderecoDTO.setEstado(endereco.getEstado());
         enderecoDTO.setCep(endereco.getCep());
         enderecoDTO.setPais(endereco.getPais());
-        enderecoDTO.setDataCadastro(endereco.getDataCadastro());
 
         return enderecoDTO;
     }

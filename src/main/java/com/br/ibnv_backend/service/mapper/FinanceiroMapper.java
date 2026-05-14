@@ -35,7 +35,7 @@ public class FinanceiroMapper {
         notaFiscal.setId(dto.getNotaFiscal().getId());
         notaFiscal.setNomeArquivo(dto.getNotaFiscal().getNomeArquivo());
         notaFiscal.setTipoArquivo(dto.getNotaFiscal().getTipoArquivo());
-        notaFiscal.setImagem(dto.getNotaFiscal().getImagem());
+        notaFiscal.setCaminhoImagem(dto.getNotaFiscal().getCaminhoImagem());
 
         entity.setId(dto.getId());
         entity.setTipo(dto.getTipo());
@@ -67,11 +67,10 @@ public class FinanceiroMapper {
         membro.setDataCadastro(entity.getMembro().getDataCadastro());
         membro.setDataBatismo(entity.getMembro().getDataBatismo());
 
-
         notaFiscal.setId(entity.getNotaFiscal().getId());
         notaFiscal.setNomeArquivo(entity.getNotaFiscal().getNomeArquivo());
         notaFiscal.setTipoArquivo(entity.getNotaFiscal().getTipoArquivo());
-        notaFiscal.setImagem(entity.getNotaFiscal().getImagem());
+        notaFiscal.setCaminhoImagem(entity.getNotaFiscal().getCaminhoImagem());
 
         dto.setId(entity.getId());
         dto.setTipo(entity.getTipo());

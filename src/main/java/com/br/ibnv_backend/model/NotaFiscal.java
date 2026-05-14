@@ -8,15 +8,17 @@ public class NotaFiscal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="CD_NOTA_FISCAL")
     private Long id;
 
+    @Column(name="NM_NOME_ARQUIVO")
     private String nomeArquivo;
 
+    @Column(name="NM_TIPO_ARQUIVO")
     private String tipoArquivo;
 
-    @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
-    private byte[] imagem;
+    @Column(name = "DS_CAMINHO_IMAGEM")
+    private String caminhoImagem;
 
     public Long getId() {
         return id;
@@ -42,11 +44,11 @@ public class NotaFiscal {
         this.tipoArquivo = tipoArquivo;
     }
 
-    public byte[] getImagem() {
-        return imagem;
+    public String getCaminhoImagem() {
+        return caminhoImagem;
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
+    public void setCaminhoImagem(String caminhoImagem) {
+        this.caminhoImagem = caminhoImagem;
     }
 }

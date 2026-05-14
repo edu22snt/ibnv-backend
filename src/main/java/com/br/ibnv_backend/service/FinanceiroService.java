@@ -17,7 +17,7 @@ import java.util.Optional;
 @Transactional
 public class FinanceiroService {
 
-    private final Logger log = LoggerFactory.getLogger(MembroService.class);
+    private final Logger log = LoggerFactory.getLogger(FinanceiroService.class);
     private FinanceiroMapper mapper;
     private final FinanceiroRepository repository;
 
@@ -55,5 +55,11 @@ public class FinanceiroService {
         Financeiro entity = mapper.toEntity(dto);
         entity = repository.save(entity);
         return mapper.toDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<FinanceiroDTO> searchByKeyword(String param, Pageable pageable) {
+        log.debug("Request to get search Financeiro by keyword");
+        return repository.searchByKeyword(param, pageable).map(FinanceiroMapper::toDto);
     }
 }

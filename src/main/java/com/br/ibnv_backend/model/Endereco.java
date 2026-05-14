@@ -38,9 +38,6 @@ public class Endereco implements Serializable {
     @Column(name="NM_PAIS")
     private String pais;
 
-    @Column(name="DT_CADASTRO")
-    private Timestamp dataCadastro;
-
     public Long getId() {
         return id;
     }
@@ -113,11 +110,4 @@ public class Endereco implements Serializable {
         this.pais = pais;
     }
 
-    public Timestamp getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Timestamp dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
 }

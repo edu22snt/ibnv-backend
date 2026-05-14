@@ -5,7 +5,7 @@ public class NotaFiscalDTO {
     private Long id;
     private String nomeArquivo;
     private String tipoArquivo;
-    private byte[] imagem;
+    private String caminhoImagem;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class NotaFiscalDTO {
         this.tipoArquivo = tipoArquivo;
     }
 
-    public byte[] getImagem() {
-        return imagem;
+    public String getCaminhoImagem() {
+        return caminhoImagem;
     }
 
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
+    public void setCaminhoImagem(String caminhoImagem) {
+        this.caminhoImagem = caminhoImagem;
     }
 }

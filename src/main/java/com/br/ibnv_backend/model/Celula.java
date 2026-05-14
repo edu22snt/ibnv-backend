@@ -17,7 +17,7 @@ public class Celula implements Serializable {
     private String nome;
 
     @Column(name="NM_LIDER")
-    private String Lider;
+    private String lider;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CD_ENDERECO")
@@ -49,11 +49,11 @@ public class Celula implements Serializable {
     }
 
     public String getLider() {
-        return Lider;
+        return lider;
     }
 
     public void setLider(String lider) {
-        Lider = lider;
+        this.lider = lider;
     }
 
     public Endereco getEndereco() {

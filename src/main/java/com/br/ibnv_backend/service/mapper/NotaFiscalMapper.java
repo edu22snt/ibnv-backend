@@ -4,7 +4,6 @@ import com.br.ibnv_backend.model.NotaFiscal;
 import com.br.ibnv_backend.service.dto.NotaFiscalDTO;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class NotaFiscalMapper {
 
@@ -14,7 +13,7 @@ public class NotaFiscalMapper {
         entity.setId(dto.getId());
         entity.setNomeArquivo(dto.getNomeArquivo());
         entity.setTipoArquivo(dto.getTipoArquivo());
-        entity.setImagem(dto.getImagem());
+        entity.setCaminhoImagem(dto.getCaminhoImagem());
         return entity;
     }
 
@@ -24,7 +23,7 @@ public class NotaFiscalMapper {
         dto.setId(entity.getId());
         dto.setNomeArquivo(entity.getNomeArquivo());
         dto.setTipoArquivo(entity.getTipoArquivo());
-        dto.setImagem(entity.getImagem());
+        dto.setCaminhoImagem(entity.getCaminhoImagem());
         return dto;
     }
 
