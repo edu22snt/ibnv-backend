@@ -22,7 +22,7 @@ public class Evento {
     @Column(name="NM_TIPO")
     private String tipo;
 
-    @Column(name="NM_NOME")
+    @Column(name="NM_DESCRICAO")
     private String descricao;
 
     public Long getId() {
