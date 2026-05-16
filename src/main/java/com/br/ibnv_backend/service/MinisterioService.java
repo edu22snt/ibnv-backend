@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,6 +44,15 @@ public class MinisterioService {
     public Page<MinisterioDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Ministerio");
         return repository.findAll(pageable).map(MinisterioMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<MinisterioDTO> findAllNotPage() {
+        log.debug("Request to get all Ministerio");
+        return repository.findAll()
+                .stream()
+                .map(MinisterioMapper::toDto)
+                .toList();
     }
 
     public void delete(Long id) {

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -37,6 +38,11 @@ public class MinisterioController {
     @GetMapping()
     public ResponseEntity<Page<MinisterioDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
+    }
+
+    @GetMapping("/findAllNotPage")
+    public ResponseEntity<List<MinisterioDTO>> findAllNotPage() {
+        return ResponseEntity.ok(service.findAllNotPage());
     }
 
     @DeleteMapping("/{id}")

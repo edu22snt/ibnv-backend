@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,41 +19,51 @@ import java.util.Optional;
 public class EnderecoService {
 
     private final Logger log = LoggerFactory.getLogger(EnderecoService.class);
-    private EnderecoMapper enderecoMapper;
-    private final EnderecoRepository enderecoRepository;
+    private EnderecoMapper mapper;
+    private final EnderecoRepository repository;
 
-    public EnderecoService(EnderecoRepository enderecoRepository) {
-        this.enderecoRepository = enderecoRepository;
+    public EnderecoService(EnderecoMapper mapper, EnderecoRepository repository) {
+        this.mapper = mapper;
+        this.repository = repository;
     }
 
     public EnderecoDTO save(EnderecoDTO enderecoDTO) {
         log.debug("Request to post save Endereco");
-        Endereco endereco = enderecoMapper.toEntity(enderecoDTO);
-        endereco = enderecoRepository.save(endereco);
-        return enderecoMapper.toDto(endereco);
+        Endereco endereco = mapper.toEntity(enderecoDTO);
+        endereco = repository.save(endereco);
+        return mapper.toDto(endereco);
     }
 
     @Transactional(readOnly = true)
     public Optional<EnderecoDTO> findOne(Long id) {
         log.debug("Request to get find Endereco by id");
-        return enderecoRepository.findById(id).map(EnderecoMapper::toDto);
+        return repository.findById(id).map(EnderecoMapper::toDto);
     }
 
     @Transactional(readOnly = true)
     public Page<EnderecoDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Endereco");
-        return enderecoRepository.findAll(pageable).map(EnderecoMapper::toDto);
+        return repository.findAll(pageable).map(EnderecoMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<EnderecoDTO> findAllNotPage() {
+        log.debug("Request to get all Endereco");
+        return repository.findAll()
+                .stream()
+                .map(EnderecoMapper::toDto)
+                .toList();
     }
 
     public void delete(Long id) {
         log.debug("Request to delete Endereco by id : {}", id);
-        enderecoRepository.deleteById(id);
+        repository.deleteById(id);
     }
 
     public EnderecoDTO update(EnderecoDTO enderecoDTO) {
         log.debug("Request to update Endereco: {}", enderecoDTO);
-        Endereco endereco = enderecoMapper.toEntity(enderecoDTO);
-        endereco = enderecoRepository.save(endereco);
-        return enderecoMapper.toDto(endereco);
+        Endereco endereco = mapper.toEntity(enderecoDTO);
+        endereco = repository.save(endereco);
+        return mapper.toDto(endereco);
     }
 }

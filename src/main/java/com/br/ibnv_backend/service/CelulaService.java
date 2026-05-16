@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,6 +45,15 @@ public class CelulaService {
     public Page<CelulaDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Celula");
         return repository.findAll(pageable).map(CelulaMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CelulaDTO> findAllNotPage() {
+        log.debug("Request to get all Celula");
+        return repository.findAll()
+                .stream()
+                .map(CelulaMapper::toDto)
+                .toList();
     }
 
     public void delete(Long id) {

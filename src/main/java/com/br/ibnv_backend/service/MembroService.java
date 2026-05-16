@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,6 +44,15 @@ public class MembroService {
     public Page<MembroDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Membro");
         return repository.findAll(pageable).map(MembroMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<MembroDTO> findAllNotPage() {
+        log.debug("Request to get all Membro");
+        return repository.findAll()
+                .stream()
+                .map(MembroMapper::toDto)
+                .toList();
     }
 
     public void delete(Long id) {
