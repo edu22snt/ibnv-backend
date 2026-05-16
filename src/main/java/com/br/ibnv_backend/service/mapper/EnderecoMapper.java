@@ -11,6 +11,7 @@ public class EnderecoMapper {
         Endereco endereco = new Endereco();
 
         endereco.setId(enderecoDTO.getId());
+        endereco.setDescricao(enderecoDTO.getDescricao());
         endereco.setLogradouro(enderecoDTO.getLogradouro());
         endereco.setNumero(enderecoDTO.getNumero());
         endereco.setComplemento(enderecoDTO.getComplemento());
@@ -27,6 +28,7 @@ public class EnderecoMapper {
         EnderecoDTO enderecoDTO = new EnderecoDTO();
 
         enderecoDTO.setId(endereco.getId());
+        enderecoDTO.setDescricao(endereco.getDescricao());
         enderecoDTO.setLogradouro(endereco.getLogradouro());
         enderecoDTO.setNumero(endereco.getNumero());
         enderecoDTO.setComplemento(endereco.getComplemento());

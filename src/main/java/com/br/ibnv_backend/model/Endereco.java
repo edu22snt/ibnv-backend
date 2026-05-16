@@ -14,6 +14,9 @@ public class Endereco implements Serializable {
     @Column(name="CD_ENDERECO")
     private Long id;
 
+    @Column(name="NM_DESCRICAO")
+    private String descricao;
+
     @Column(name="NM_LOGRADOURO")
     private String logradouro;
 
@@ -44,6 +47,14 @@ public class Endereco implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getLogradouro() {
