@@ -35,7 +35,7 @@ public class EnderecoController {
         return enderecoDTO;
     }
 
-    @GetMapping()
+    @GetMapping("/findAll")
     public ResponseEntity<Page<EnderecoDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }

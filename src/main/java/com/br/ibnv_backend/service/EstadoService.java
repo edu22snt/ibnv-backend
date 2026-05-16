@@ -44,6 +44,15 @@ public class EstadoService {
     }
 
     @Transactional(readOnly = true)
+    public List<EstadoDTO> findByPaisId(Long id) {
+        log.debug("Request to get all Estado");
+        return repository.findByPaisId(id)
+                .stream()
+                .map(EstadoMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Page<EstadoDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Estado");
         return repository.findAll(pageable).map(EstadoMapper::toDto);

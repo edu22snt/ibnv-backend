@@ -35,7 +35,7 @@ public class PaisController {
         return dto;
     }
 
-    @GetMapping()
+    @GetMapping("/findAll")
     public ResponseEntity<Page<PaisDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }

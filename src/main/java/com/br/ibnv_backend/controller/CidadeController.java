@@ -35,7 +35,12 @@ public class CidadeController {
         return dto;
     }
 
-    @GetMapping()
+    @GetMapping("/findByEstadoId/{id}")
+    public ResponseEntity<List<CidadeDTO>> findByEstadoId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findByEstadoId(id));
+    }
+
+    @GetMapping("/findAll")
     public ResponseEntity<Page<CidadeDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }

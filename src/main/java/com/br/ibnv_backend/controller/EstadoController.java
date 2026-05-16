@@ -35,7 +35,12 @@ public class EstadoController {
         return dto;
     }
 
-    @GetMapping()
+    @GetMapping("/findByPaisId/{id}")
+    public ResponseEntity<List<EstadoDTO>> findByPaisId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findByPaisId(id));
+    }
+
+    @GetMapping("/findAll")
     public ResponseEntity<Page<EstadoDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
     }

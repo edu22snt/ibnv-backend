@@ -43,6 +43,15 @@ public class CidadeService {
     }
 
     @Transactional(readOnly = true)
+    public List<CidadeDTO> findByEstadoId(Long id) {
+        log.debug("Request to get all Cidade");
+        return repository.findByEstadoId(id)
+                .stream()
+                .map(CidadeMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Page<CidadeDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Cidade");
         return repository.findAll(pageable).map(CidadeMapper::toDto);
