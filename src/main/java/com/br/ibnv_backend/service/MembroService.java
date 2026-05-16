@@ -11,6 +11,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +32,7 @@ public class MembroService {
 
     public MembroDTO save(MembroDTO dto) {
         log.debug("Request to post save Membro");
+        dto.setDataCadastro(LocalDateTime.now());
         Membro membro = mapper.toEntity(dto);
         membro = repository.save(membro);
         return mapper.toDto(membro);
@@ -71,5 +75,9 @@ public class MembroService {
     public Page<MembroDTO> searchByKeyword(String param, Pageable pageable) {
         log.debug("Request to get search Membro by keyword");
         return repository.searchByKeyword(param, pageable).map(MembroMapper::toDto);
+    }
+
+    private LocalDate definirDataCadastro() {
+        return LocalDate.now();
     }
 }

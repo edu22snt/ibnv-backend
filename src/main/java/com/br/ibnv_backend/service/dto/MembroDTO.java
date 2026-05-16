@@ -17,8 +17,7 @@ public class MembroDTO implements Serializable {
     private Integer ativo;
     private LocalDateTime dataCadastro;
     private LocalDateTime dataBatismo;
-
-    private boolean lider;
+    private Integer lider;
 
     public Long getId() {
         return id;
@@ -116,11 +115,11 @@ public class MembroDTO implements Serializable {
         this.dataBatismo = dataBatismo;
     }
 
-    public boolean isLider() {
+    public Integer isLider() {
         return lider;
     }
 
-    public void setLider(boolean lider) {
+    public void setLider(Integer lider) {
         this.lider = lider;
     }
 }
